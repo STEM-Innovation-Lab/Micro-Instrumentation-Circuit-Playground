@@ -5,9 +5,9 @@ This repository is a collection of code examples a user can load onto the Circui
 We can make some interesting scientific instruments using the hardware on the Circuit Playground Express by Adafruit Industries. Hardware, in this sense, is the set of electronic components on the Circuit Playground Express. We will write the software to make the hardware into an instrument.
 
 ## Device Setup 
-We will work in Circuit Python, a variant of the Python programming language. So, first, we need to put Circuit Python onto the Circuit Playground Express.
+We will work in CircuitPython, a variant of the Python programming language. So, first, we need to put CircuitPython onto the Circuit Playground Express.
 
-Plug your Circuit Playground Express (CPX) into your computer's USB port. Set the CPX off to the side, not on your computer, so you don't cause unwanted electrical connections between the two. If your CPX is new, you should see a cycle of rainbow lights. There is a small button close to the center of the CPX, labelled "reset". Press it once, and all the lights should turn red. Now it is ready to receive Circuit Python. (If it doesn't show rainbow lights, or one press doesn't work, try double-clicking the button to get the lights to turn red.) An external drive called CPLAYBOOT should show up on your computer.
+Plug your Circuit Playground Express (CPX) into your computer's USB port. Set the CPX off to the side, not on your computer, so you don't cause unwanted electrical connections between the two. If your CPX is new, you should see a cycle of rainbow lights. There is a small button close to the center of the CPX, labelled "reset". Press it once, and all the lights should turn red. Now it is ready to receive CircuitPython. (If it doesn't show rainbow lights, or one press doesn't work, try double-clicking the button to get the lights to turn red.) An external drive called CPLAYBOOT should show up on your computer.
 
 Use your computer to navigate to [https://circuitpython.org/downloads](https://circuitpython.org/downloads) and click on the Circuit Playground Express. Download the current uf2 file at the DOWNLOAD UF2 NOW button. Copy that file to the CPLAYBOOT drive, which will then disappear and be replaced by a drive called CIRCUITPY.
 
@@ -47,12 +47,12 @@ The lights give off some heat of their own when they are on, so they tend to hea
 17.	`time.sleep( .1 )` -- slow down the loop so that the processor is working at the scale of human perception, not running as fast as it possibly can for no good purpose.
 
 
-## 2. Audio Guided Light Sensor 
+## 2. Audio Guided Light Finder
 Now let's try a different instrument. This one uses the light sensor and plays audible tones to guide the user to point the sensor toward the brightest light available. Higher pitch tones indicate greater brightness.
 
 To run the light finder instrument, navigate to the "light_finder" directory within this repository and copy the "code.py" file to the CIRCUITPY drive, replacing the one that is already there.  
 
-![Image of Audio Guided Light Sensor Code](./images/lightsensor1.png) 
+![Image of Audio Guided Light Finder Code](./images/lightsensor1.png) 
 
 ### Code breakdown:
 1.	`import time` -- we access a library of code with time functions in it, so we can use time.sleep() in line 17.
@@ -65,19 +65,19 @@ To run the light finder instrument, navigate to the "light_finder" directory wit
 8.	`light_level = cp.light` -- read the light level again, to update the reading.
 9.	`cp.stop_tone()` -- stop playing the tone.
 
-## 3. Detecting Gravity with an Accelerometer 
+## 3. Overturn Warning with an Accelerometer 
 Now let's read the on-board accelerometer and use it to detect gravity, which behaves similarly to acceleration. To do this, we will test if the circuit board is upright, with the components on top. If the circuit board is overturned, we will give a warning tone. We will also use the LED lights to indicate the state; upright or overturned.
 
 The gravity equivalent of acceleration at earth's surface is 9.8 m/s^2, so we will look for anything less than -2 to check for the upside-down condition. Completely upside-down will give a reading of -9.8 in the z direction of the accelerometer sensor.
 
-To run the overturn warning instrument, download the code.py file from here (future link). Copy the code to the CIRCUITPY drive, replacing the one that is already there.
+To run the light finder instrument, navigate to the "overturn_warning" directory within this repository and copy the "code.py" file to the CIRCUITPY drive, replacing the one that is already there.
 
-![Image of Detecting Gravity with an Accelerometer Code](./images/gravity1.png)  
+![Image of Overturn Warning with an Accelerometer Code](./images/gravity1.png)  
 
 ### Code breakdown:
-1.	`import time` -- we access a library of code with time functions in it, so we can use time.sleep() in line 17.
-2.	`from adafruit_circuitplayground import cp` -- we access a library of code with CPX hardware functions in it, so we can use the thermometer sensor and the lights.
+1.	`from adafruit_circuitplayground import cp` -- we access a library of code with CPX hardware functions in it, so we can use the thermometer sensor and the lights.
 3.	blank line
+2.	`import time` -- we access a library of code with time functions in it, so we can use time.sleep() in line 17.
 4.	`cpx.pixels.brightness = 0.8` -- set the overall brightness of the lights, from 0.0 to 1.0
 5.	blank line
 6.	`while True:` -- the same infinite loop pattern as used earlier.
@@ -101,13 +101,13 @@ Any cannonball, or any object in free fall, is in orbit. The earth usually gets 
 
 We will set the instrument to let us know when it's in free fall, when the gravity and the falling acceleration cancel each other out. Gently toss the unit upwards, or sideways, or simply drop it, and you can see what the orbital path looks like. The unit will play a cartoon voice saying "Yikes! And away!" and the lights will change from green to blue while the unit is in free fall.
 
-To run the free fall detection instrument, download the code.py file and the yikes.wav file from here (future link). Copy the code to the CIRCUITPY drive, replacing the one that is already there, and copy the .wav file to the CIRCUITPY drive, too.
+To run the light finder instrument, navigate to the "free_fall" directory within this repository and copy the "code.py" file to the CIRCUITPY drive, replacing the one that is already there, and copy the .wav file to the CIRCUITPY drive, too.
 
 ![Image of Free Fall Detection Code](./images/freefall1.png)
 
 ### Code breakdown:
-1.	`import time` -- we access a library of code with time functions in it, so we can use time.sleep() in line 17.
-2.	`from adafruit_circuitplayground import cp` -- we access a library of code with CPX hardware functions in it, so we can use the thermometer sensor and the lights.
+1.	`from adafruit_circuitplayground import cp` -- we access a library of code with CPX hardware functions in it, so we can use the thermometer sensor and the lights.
+2.	`import time` -- we access a library of code with time functions in it, so we can use time.sleep() in line 17.
 3.	blank line
 4.	`cpx.pixels.brightness = 0.8` -- set the overall brightness of the lights, from 0.0 to 1.0
 5.	blank line
