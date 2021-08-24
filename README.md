@@ -75,7 +75,9 @@ To run the overturn warning instrument, download the code.py file from here (fut
 ![Image of Detecting Gravity with an Accelerometer Code](./images/gravity1.png)  
 
 ### Code breakdown:
-Lines 1, 2, and 3 are equivalent to those in the previous program.
+1.	`import time` -- we access a library of code with time functions in it, so we can use time.sleep() in line 17.
+2.	`from adafruit_circuitplayground import cp` -- we access a library of code with CPX hardware functions in it, so we can use the thermometer sensor and the lights.
+3.	blank line
 4.	`cpx.pixels.brightness = 0.8` -- set the overall brightness of the lights, from 0.0 to 1.0
 5.	blank line
 6.	`while True:` -- the same infinite loop pattern as used earlier.
@@ -104,7 +106,13 @@ To run the free fall detection instrument, download the code.py file and the yik
 ![Image of Free Fall Detection Code](./images/freefall1.png)
 
 ### Code breakdown:
-Lines 1-7 are equivalent to those in the previous program.
+1.	`import time` -- we access a library of code with time functions in it, so we can use time.sleep() in line 17.
+2.	`from adafruit_circuitplayground import cp` -- we access a library of code with CPX hardware functions in it, so we can use the thermometer sensor and the lights.
+3.	blank line
+4.	`cpx.pixels.brightness = 0.8` -- set the overall brightness of the lights, from 0.0 to 1.0
+5.	blank line
+6.	`while True:` -- the same infinite loop pattern as used earlier.
+7.	`x, y, z = cpx.acceleration` -- read the accelerometer and break it out into x, y, and z components.
 8.	`sum_accel = abs(x) + abs(y) + abs(z)` -- a quick way to see if there is any acceleration at all is to simply add the absolute values of each direction. A vector sum would be more correct, and also work, but this is easier and works fine for our free fall test.
 9.	`print((sum_accel, 2))` -- print the simple sum, and the threshold value we will use in the line below, so that you can use the plotter to see the action, when plugged in.
 10.	`if sum_accel < 2:` -- if we are close enough to free fall...
