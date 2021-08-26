@@ -1,19 +1,22 @@
 # Micro-Instrumentation: Circuit Playground Express 
 
-This repository is a collection of code examples a user can load onto the Circuit Playground Express to create examples of scientific instruments. A scientific instrument is something that quantifies a physical phenomenon and finds a way to tell you about that quantity.
+This repository is a collection of CircuitPython code examples used with the Circuit Playground Express (CPX). Each code example transforms the CPX into a different scientific instrument. A scientific instrument is something that quantifies a physical phenomenon and finds a way to tell you about that quantity.
 
 We can make some interesting scientific instruments using the hardware on the Circuit Playground Express by Adafruit Industries. Hardware, in this sense, is the set of electronic components on the Circuit Playground Express. We will write the software to make the hardware into an instrument.
 
 ## Device Setup 
 We will work in CircuitPython, a variant of the Python programming language. So, first, we need to put CircuitPython onto the Circuit Playground Express.
 
-Plug your Circuit Playground Express (CPX) into your computer's USB port. Set the CPX off to the side, not on your computer, so you don't cause unwanted electrical connections between the two. If your CPX is new, you should see a cycle of rainbow lights. There is a small button close to the center of the CPX, labelled "reset". Press it once, and all the lights should turn red. Now it is ready to receive CircuitPython. (If it doesn't show rainbow lights, or one press doesn't work, try double-clicking the button to get the lights to turn red.) An external drive called CPLAYBOOT should show up on your computer.
+Plug your Circuit Playground Express (CPX) into your computer's USB port. Set the CPX off to the side, but not on your computer, so you don't cause unwanted electrical connections between the two. If your CPX is new, you should see a cycle of rainbow lights. There is a small button close to the center of the CPX, labelled "reset". Press it once, and all the lights should turn red. Now it is ready to receive CircuitPython. (If it doesn't show rainbow lights, or one press doesn't work, try double-clicking the button to get the lights to turn red.) An external drive called CPLAYBOOT should show up on your computer.
 
-Use your computer to navigate to [https://circuitpython.org/downloads](https://circuitpython.org/downloads) and click on the Circuit Playground Express. Download the current uf2 file at the DOWNLOAD UF2 NOW button. Copy that file to the CPLAYBOOT drive, which will then disappear and be replaced by a drive called CIRCUITPY.
+Use your computer to navigate to [https://circuitpython.org/downloads](https://circuitpython.org/downloads) and click on the Circuit Playground Express. Download the current uf2 file at the "DOWNLOAD .UF2 NOW" button. Copy that file to the CPLAYBOOT drive, which will then disappear and be replaced by a drive called CIRCUITPY.
 
 Now, use your computer to navigate to [https://codewith.mu](https://codewith.mu). Select Downloads and install the version that is correct for your operating system.
 
-Now we can program the CPX from the computer. Click on the Serial button in the Mu Editor to see the output from the CPX. Click in the serial panel and press ctrl and c to stop a program, and ctrl and d to restart a program. Click the Load button to see what code is on the CPX.
+Now we can program the CPX from the computer to create different instruments. Click on the Serial button in the Mu Editor to see the output from the CPX. Click in the serial panel and press "ctrl-c" to stop a program, and "ctrl-d" to restart a program. Click the "Load" button to see what code is on the CPX.
+
+## Clone or Download the Repository
+If you have Git installed and are familiar with how to use it, simply clone this repository to a directory of your choice on your computer. If you're new to Git and Github, you can use the green "Code" button at the top of the page to [https://github.com/STEM-Innovation-Lab/Micro-Instrumentation-Circuit-Playground/archive/refs/heads/main.zip](download a .zip file of the code). If you would like to know more about Git, W3Schools has a [good introductory guide](https://www.w3schools.com/git/default.asp).
 
 ## 1. Thermal Runaway with LED's
 Let's put our own code on the CPX. Navigate to the "thermal_runaway" directory within this repository and copy the "code.py" file to the CIRCUITPY drive, replacing the one that is already there. 
@@ -41,9 +44,9 @@ The lights give off some heat of their own when they are on, so they tend to hea
 11.	`temperature_offset = - 25` -- since we are expecting temperatures not far from room temperature, we subtract 25 to bring the temperature scale onto the lights in a meaningful way, from 25 to 35 on the ten lights.
 12.	`for index in range ( 0, 10 ):` -- set up a "for" loop that counts from 0 to 10, for the 10 lights
 13.	`if index < temperature_C + temperature_offset:` -- if the index is less than the temperature after we apply the offset....
-14.	`cp.pixels\[index\] = color` -- set that particular light specified by the index to the color we specified in line 4.
+14.	`cp.pixels[index] = color` -- set that particular light specified by the index to the color we specified in line 4.
 15.	`else:` -- if not....
-16.	`cp.pixels\[index\] = OFF` -- turn that light off
+16.	`cp.pixels[index] = OFF` -- turn that light off
 17.	`time.sleep( .1 )` -- slow down the loop so that the processor is working at the scale of human perception, not running as fast as it possibly can for no good purpose.
 
 
