@@ -16,7 +16,7 @@ Now, use your computer to navigate to [https://codewith.mu](https://codewith.mu)
 Now we can program the CPX from the computer to create different instruments. Click on the Serial button in the Mu Editor to see the output from the CPX. Click in the serial panel and press "ctrl-c" to stop a program, and "ctrl-d" to restart a program. Click the "Load" button to see what code is on the CPX.
 
 ## Clone or Download the Repository
-If you have Git installed and are familiar with how to use it, simply clone this repository to a directory of your choice on your computer. If you're new to Git and Github, you can use the green "Code" button at the top of the page to [https://github.com/STEM-Innovation-Lab/Micro-Instrumentation-Circuit-Playground/archive/refs/heads/main.zip](download a .zip file of the code). If you would like to know more about Git, W3Schools has a [good introductory guide](https://www.w3schools.com/git/default.asp).
+If you have Git installed and are familiar with how to use it, simply clone this repository to a directory of your choice on your computer. If you're new to Git and Github, you can use the green "Code" button at the top of the page to [download a .zip file of the code](https://github.com/STEM-Innovation-Lab/Micro-Instrumentation-Circuit-Playground/archive/refs/heads/main.zip). If you would like to know more about Git, W3Schools has a [good introductory guide](https://www.w3schools.com/git/default.asp).
 
 ## 1. Thermal Runaway with LED's
 Let's put our own code on the CPX. Navigate to the "thermal_runaway" directory within this repository and copy the "code.py" file to the CIRCUITPY drive, replacing the one that is already there. 
